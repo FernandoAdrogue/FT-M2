@@ -1,0 +1,3 @@
+*El DOM es la representacion de la estructura HTML de una pagina en forma de objeto de javascript
+*El DOM element selector es parte de las herramientas de la DOM API que permite seleccionar cada uno de las elementos de la estructura html
+*El DOM events son mensajes se envían para notificar al código de cosas interesantes que han ocurrido. Los eventos pueden representar cualquier cosa desde las interacciones básicas del usuario hasta notificaciones automatizadas de las cosas que suceden en el modelo de representación.
