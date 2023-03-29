@@ -59,13 +59,19 @@ function buildToDo(todo, index) {
 
   const toDoText = document.createElement('span')
   toDoText.innerHTML= todo.description
-  toDoText.id = index
-  if(todo.complete)toDoText.className= 'completeText'
+  const toDocheck = document.createElement('input')
+  toDocheck.type= 'checkbox'
+  toDocheck.id = index
+  if(todo.complete){
+    toDocheck.className= 'completeCheckbox'
+    toDoText.className= 'completeText'
+    toDocheck.checked= true
+  }
+  toDocheck.addEventListener('click',completeToDo)
+  toDoShell.appendChild(toDocheck)
   toDoShell.appendChild(toDoText)
-  toDoText.addEventListener('click',completeToDo)
   return toDoShell
 }
-
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
 // Recibirá como parámetro un array de objetos ToDo
 // Utilizar el método map usando la función previamente creada ('buildToDo')
