@@ -12,6 +12,21 @@
       padding:0 15px;
     }
 
+    .img-header {
+      margin-top: 0.5em;
+      width: 100%;
+      border-radius: 15px;
+    }
+    @media screen and (max-width: @phone) {
+      .img-header{
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+
+      }
+  
+    }
+
   }
 
   .music-images {
@@ -24,6 +39,18 @@
       margin: 20px 2.5%;
       border-radius: 20px;
       height: 100%;
+    }
+    
+    @media screen and (max-width: @phone){
+      .auricular{
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+      }
+      
+      .ondas, .tecnologia{
+        display: none;
+      }
     }
   }
 
@@ -58,6 +85,7 @@
       }
 
       .btn {
+        .button(fit-content;fit-content;1em;1.2em);
       }
     }
 
@@ -71,5 +99,32 @@
         border-radius: 10px;
       }
     }
+
+    @media screen and (max-width: @phone){
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 0px;
+      margin-top: 3em;
+      margin-bottom: 1em;
+
+      .phone-width {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+      }
+      
+      .actual-img, .actual-text {
+        .phone-width();
+      }
+
+      .actual-text {
+        .btn {
+          .button(100%;fit-content;1.2em;1.5em);
+        }
+      }
+
+    }
   }
 }
+
+
