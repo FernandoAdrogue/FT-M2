@@ -271,6 +271,13 @@ footer {
   font-size: 1.2em;
   text-align: center;
 }
+.home .actual .actual-text .btn:hover {
+  background-color: #5E6164;
+  color: #23293B;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
 .home .actual .actual-img {
   width: 46%;
   margin-left: 4%;
@@ -308,5 +315,12 @@ footer {
     border-radius: 5px;
     font-size: 1.5em;
     text-align: center;
+  }
+  .home .actual .actual-text .btn:hover {
+    background-color: #5E6164;
+    color: #23293B;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
   }
 }
