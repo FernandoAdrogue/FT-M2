@@ -71,7 +71,3 @@ var $ = function(selector) {
   elements = traverseDomAndCollectElements(selectorMatchFunc);
   return elements;
 };
-
-// $('.clasecualquiera')
-// $('#idcialquiera')
-// $('p')
