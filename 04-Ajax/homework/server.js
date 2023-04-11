@@ -58,9 +58,21 @@ app.get("/amigos", (req, res) => {
 app.get("/amigos/:id", function(req, res)  {
   const {id} = req.params;
   let friendIndex = amigos.findIndex(friend => friend.id == id);
-  var friend = amigos[friendIndex]
-  console.log(res.status)
-  res.status(200).json(friend);
+  //******************************************************************************* */
+  if (friendIndex >=0) {                             //
+    var friend = amigos[friendIndex]                 //
+    console.log(res.status)                          //
+    res.status(200).json(friend);                    //
+  }else{                                             // Codigo agregado para manejar
+    res                                              // los errores del servidor
+      .status(404)                                   //
+      .json({ message: `El ID: ${id} no existe.` }); //
+  }                                                  //
+  //******************************************************************************* */
+
+  // var friend = amigos[friendIndex] //---------------------------------------------/
+  // console.log(res.status)          //Codigo original
+  // res.status(200).json(friend);    //---------------------------------------------/
 });
 
 app.post("/amigos", (req, res) => {
@@ -84,8 +96,20 @@ app.put("/amigos/:id", (req, res) => {
 });
 
 app.delete("/amigos/:id", (req, res) => {
-  amigos = amigos.filter(friend => friend.id != req.params.id);
-  res.status(200).json(amigos);
+  //******************************************************************************************************************* */
+  let friendIndex = amigos.findIndex(friend => friend.id == req.params.id);//lineas agregadas   
+                                                                           //
+  if (friendIndex != -1 ){                                                    //para que el servidor
+    amigos = amigos.filter(friend => friend.id != req.params.id);          //
+    res.status(200).json(amigos);                                          //responda cuando no
+  }else{                                                                   //
+    res                                                                    //encuentra el ID
+      .status(404)                                                         //
+      .json({ message: `Este ${id} no existe.` });                         //
+  }                                                                        //
+  //******************************************************************************************************************** */
+  //amigos = amigos.filter(friend => friend.id != req.params.id);
+  //res.status(200).json(amigos);
 });
 
 app.listen(5000, () => {
