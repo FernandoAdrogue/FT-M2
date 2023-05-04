@@ -1,12 +1,13 @@
 const { createStore } = require("redux");
 const contador = require("./reducer");
-const { incremento, decremento } = require("./actions");
+const { incremento, decremento, incrementoImpar, /* incrementoAsync */ } = require("./actions");
+//const { INCREMENTO, DECREMENTO } = require("./action-types");
 
 // En esta línea creamos nuestro store. Pasándole como parámetro nuestro Reducer
-var store;
+const store= createStore(contador);
 
 // Obtenemos el elemento con el id `valor`.
-var valor;
+var valor= document.getElementById('valor');
 
 // Esta función nos va a servir para actualizar nuestro DOM con el valor que tengamos en nuestro Store.
 // En el primer render y cada vez que nos subscribamos al Store.
@@ -14,11 +15,39 @@ var valor;
 function renderContador() {
   // Obtenemos la propiedad 'contador' de nuestro store:
   // Seteamos el número obtenido como texto dentro del elemento con id 'valor':
+  const {contador} = store.getState()
+  valor.innerHTML=String(contador)
 }
 
 // Ejecutamos la función 'renderContador':
+renderContador()
 
 // Nos subscribimos al store pasándole la misma función. Así cada vez que llegue una acción, ejecutamos la función:
-
+store.subscribe(renderContador)
 // Por último, utilizamos los botones de nuestro HTML para que cada vez que hagamos click,
 // hagan un dispatch al store de la acción correspondiente:
+
+
+const buttonIncremento = document.getElementById('incremento')
+const buttonDecremento = document.getElementById('decremento')
+const buttonIncrementoImpar = document.getElementById('incrementoImpar')
+const buttonIncrementoAsync = document.getElementById('incrementoAsync')
+
+buttonIncremento.addEventListener("click",()=>{
+  store.dispatch(incremento())
+})
+
+buttonDecremento.addEventListener("click", ()=>{
+  store.dispatch(decremento())
+}) 
+
+buttonIncrementoImpar.addEventListener('click',()=>{
+  store.dispatch(incrementoImpar())
+})
+
+buttonIncrementoAsync.addEventListener('click',()=>{
+  setTimeout(()=>{
+      store.dispatch(incremento())
+    },
+  1000)
+})
