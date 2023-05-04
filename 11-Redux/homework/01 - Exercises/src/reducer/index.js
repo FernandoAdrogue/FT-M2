@@ -20,7 +20,7 @@ function contador(state = initialState, {type, /* payload */}) {//el payload es 
       }
     case INCREMENTO_IMPAR: return {
       ...state,
-      contador :state.contador % 2 === 0 ? state.contador + 1 : state.contador + 2 
+      contador :state.contador % 2 !== 0 ? state.contador + 1: state.contador
       }
     //case INCREMENTO_ASYNC: return {
     //  ...state,
