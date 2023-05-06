@@ -3,3 +3,4 @@ Para crear un app con react y redux:
 2. instalar react-router-dom, si queremos establecer rutas con react
 3. inslalar reducx con npm i redux
 4. para conectar react y redux ejecutar el comando npm i react-redux 
+5. para manjar peticiones asincronas hay que instalar redux-thunk con npm i redux-thunk

@@ -10,7 +10,10 @@ class CardClass extends React.Component {
         super(props);
     }
 
-    render () {
+componentDidMount(){
+}
+render () {
+        console.log(this.props.characters);
         return (
             <div>
                 <h1>Card Class</h1>
@@ -32,9 +35,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = ()=> {
+const mapDispatchToProps = (dispath)=> {
     return {
-        
+        getCharacters: ()=>{dispath(getCharacters())
+        }
     }
 }
 
