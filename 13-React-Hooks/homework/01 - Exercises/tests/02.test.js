@@ -70,7 +70,8 @@ describe("01 | Ejercicios", () => {
       );
       expect(contactUs).toBeTruthy();
       const enviarFormSpy = jest.spyOn(actions, "enviarForm");
-      contactUs.find("button").simulate("click");
+      // contactUs.find("button").simulate("click");
+      contactUs.find("form").simulate("submit");
       expect(enviarFormSpy).toHaveBeenCalled();
       // Ahora la action debería recibir el estado local!
       expect(enviarFormSpy).toHaveBeenCalledWith({
