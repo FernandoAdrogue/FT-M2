@@ -17,7 +17,7 @@ import rootReducer from './reducer'
 
 import thunkMiddleware from 'redux-thunk'
 
-const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_CONPOSE__|| compose
+const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__|| compose
 
 const store = createStore(
     rootReducer,
